@@ -14,9 +14,16 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import Image from 'next/image';
+import {motion} from 'framer-motion'
 
 const Testimonials = () => {
+
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }} // Starting state
+      whileInView={{ opacity: 1, y: 0 }} // Target state when visible
+      viewport={{ once: true, amount: 0.3 }} // Trigger only once when 30% of the component is visible
+      transition={{ duration: 0.8, ease: "anticipate" }}>
     <section id="reviews">
     <div className="py-2 md:px-0 px-[2rem] flex flex-col items-center justify-center gap-12">
     <div className="text-center items-center flex flex-col gap-4">
@@ -52,6 +59,7 @@ const Testimonials = () => {
     </div>
     </div>
     </section>
+    </motion.div>
   )
 }
 

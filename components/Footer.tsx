@@ -1,8 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
 
+import {motion} from 'framer-motion'
+
 const Footer = () => {
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }} // Starting state
+      whileInView={{ opacity: 1, y: 0 }} // Target state when visible
+      viewport={{ once: true, amount: 0.3 }} // Trigger only once when 30% of the component is visible
+      transition={{ duration: 0.8, ease: "anticipate" }}>
     <div className='flex flex-col gap-12 px-[2rem] md:px-[7rem] '>
       <div className='flex flex-row items-center justify-between'>
         <div className=''>
@@ -35,6 +42,7 @@ const Footer = () => {
 
     <div className='text-white text-2xl uppercase'>end to end encrypted with v8 technology</div>
     </div>
+    </motion.div>
   )
 }
 

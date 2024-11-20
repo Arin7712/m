@@ -12,9 +12,16 @@ import {
   } from "@/components/ui/card"
 import Image from "next/image";
 import Link from "next/link";
+import MagicButton from "./MagicButton";
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }} // Starting state
+      whileInView={{ opacity: 1, y: 0 }} // Target state when visible
+      viewport={{ once: true, amount: 0.3 }} // Trigger only once when 30% of the component is visible
+      transition={{ duration: 0.8, ease: "anticipate" }}>
     <section id="pricing">
     <div className="py-[4rem]  md:px-[7rem] px-[2rem] flex flex-col  gap-6">
 
@@ -22,11 +29,7 @@ const Pricing = () => {
 
       
       <div className="inline-block">
-      <Button className="inline-block hover:shadow-md hover:shadow-cyan-400 shadow-sm shadow-cyan-400 bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1 hover:to-blue-950 transition-shadow ease-in-out">
-      <a href="https://pages.razorpay.com/forexgods">
-        PRICING
-        </a>
-      </Button>
+      <MagicButton display="show" title="PRICING" position="left" icon={(<></>)}/>
       </div>
 
       <div className="text-center items-center flex flex-col gap-4 w-full md:w-1/3">
@@ -65,10 +68,7 @@ const Pricing = () => {
                 
             </CardContent>
             <CardFooter>
-            <Button className="flex hover:shadow-md hover:shadow-cyan-400 shadow-sm shadow-cyan-400 bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1 hover:to-blue-950 transition-shadow ease-in-out">
-            <AccountBalanceWalletIcon style={{ color: "purple", fontSize: "36px" }} />
-            BUY NOW
-          </Button>
+            <MagicButton display="show" title="BUY NOW" position="left" icon={(<AccountBalanceWalletIcon style={{ color: "white", fontSize: "26px" }} />)}/>
             </CardFooter>
           </Card>
 
@@ -98,15 +98,13 @@ const Pricing = () => {
                 
             </CardContent>
             <CardFooter>
-            <Button className="flex hover:shadow-md hover:shadow-cyan-400 shadow-sm shadow-cyan-400 bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1 hover:to-blue-950 transition-shadow ease-in-out">
-            <AccountBalanceWalletIcon style={{ color: "purple", fontSize: "36px" }} />
-            BUY NOW
-          </Button>
+            <MagicButton display="show" title="BUY NOW" position="left" icon={(<AccountBalanceWalletIcon style={{ color: "white", fontSize: "26px" }} />)}/>
             </CardFooter>
           </Card>
         </div>
     </div>
     </section>
+    </motion.div>
   );
 };
 

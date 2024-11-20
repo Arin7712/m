@@ -1,5 +1,6 @@
 "use client"
 
+import Chatbot from "@/components/Chatbot";
 import Context from "@/components/Context";
 import DisplayImage from "@/components/DisplayImage";
 import Experience from "@/components/Experience";
@@ -10,14 +11,15 @@ import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
 import Questions from "@/components/Questions";
 import Testimonials from "@/components/Testimonials";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import Script from "next/script";
 
 export default function Home() {
 
 
   return (
+    <>
+          <Chatbot/>
+
     <div>
       <Navbar/>
       <Hero/>
@@ -30,5 +32,6 @@ export default function Home() {
       <Questions/>
       <Footer/>
     </div>
+    </>
   );
 }

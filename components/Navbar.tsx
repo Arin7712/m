@@ -6,6 +6,8 @@ import { navItems } from "@/constants";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+import ArrowOutward from '@mui/icons-material/ArrowOutward';
+
 
 import MenuIcon from '@mui/icons-material/Menu';
 import gsap from 'gsap';
@@ -20,6 +22,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Link from "next/link";
+import MagicButton from "./MagicButton";
 
 const Navbar = () => {
 
@@ -37,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div className="text-[#84c1c1] bg-[rgba(15,18,43,0.8)] backdrop-blur-md px-[1rem] z-50 sticky top-0">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between p-2">
         <div>
           <Image src="/moneylogo.png" alt="logo" width={100} height={100} />
         </div>
@@ -52,12 +55,8 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div>
-          <Button onClick={() => scrollToSection('pricing')} className="md:flex hidden bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1 hover:to-blue-950 transition-colors duration-300">
-            {" "}
-            
-            SIGN IN
-          </Button>
+        <div className="inline-block">
+        <MagicButton position="right" title="SIGN IN" icon={(<ArrowOutward style={{ color: "white", fontSize: "26px" }} />)}></MagicButton>
         </div>
 
             <div className="md:hidden block">
@@ -73,10 +72,7 @@ const Navbar = () => {
             ))}
             <DropdownMenuSeparator/>
             <DropdownMenuItem>
-            <Button className=" bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1  hover:to-blue-950 transition-colors duration-300">
-            {" "}
-            SIGN IN
-          </Button>
+            <MagicButton position="right" title="SIGN IN" icon={(<ArrowOutward style={{ color: "white", fontSize: "36px" }} />)}></MagicButton>
             </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

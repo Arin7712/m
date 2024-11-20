@@ -6,6 +6,8 @@ import { Button } from "./ui/button";
 import { ScrollArea } from "./ui/scroll-area";
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { secureHeapUsed } from "crypto";
+import MagicButton from "./MagicButton";
+import {motion} from 'framer-motion'
 
 
 const Experience = () => {
@@ -26,6 +28,11 @@ const Experience = () => {
   };
 
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }} // Starting state
+      whileInView={{ opacity: 1, y: 0 }} // Target state when visible
+      viewport={{ once: true, amount: 0.3 }} // Trigger only once when 30% of the component is visible
+      transition={{ duration: 0.8, ease: "anticipate" }}>
     <section id="experience">
     <div className="flex md:flex-row flex-col items-center px-[2rem] md:px-[7rem] py-[4rem] gap-28">
       <div className="flex flex-col gap-10">
@@ -72,10 +79,7 @@ const Experience = () => {
 
         <div className="flex items-center">
           <div className="inline-block">
-          <Button className="flex hover:shadow-md hover:shadow-cyan-400 shadow-sm shadow-cyan-400 bg-gradient-to-b from-[#333c5c] to-[#14162d] text-xl px-4 py-2 text-blue-1 hover:to-blue-950 transition-shadow ease-in-out">
-            <AccountBalanceWalletIcon style={{ color: "purple", fontSize: "36px" }} />
-            LIFETIME ACCESS
-          </Button>
+          <MagicButton display="show" title="LIFETIME ACCESS" position="left" icon={(<AccountBalanceWalletIcon style={{ color: "white", fontSize: "26px" }} />)}/>
           </div>
         </div>
       </div>
@@ -105,6 +109,7 @@ const Experience = () => {
       </div>
     </div>
     </section>
+    </motion.div>
   );
 };
 
