@@ -19,8 +19,7 @@ export default function Home() {
   return (
     <>
           <Chatbot/>
-
-    <div>
+          <div>
       <Navbar/>
       <Hero/>
       <Context/>
@@ -31,7 +30,7 @@ export default function Home() {
       <Testimonials/>
       <Questions/>
       <Footer/>
-    </div>
+      </div>
     </>
   );
 }
